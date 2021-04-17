@@ -43,7 +43,7 @@ ssize_t read(struct file *filp, char *buff, size_t count, loff_t *offp)
 ssize_t write(struct file *filp, const char *buff, size_t count, loff_t *offp)
 {   
 	printk(KERN_INFO "Inside write\n");
-	if (copy_from_user(&flag, buff, 1))
+	if (raw_copy_from_user(&flag, buff, 1))
 	{
 		return -EFAULT;
 	}
